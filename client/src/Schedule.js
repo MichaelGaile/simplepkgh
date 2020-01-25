@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Schedule extends Component {
   constructor(props) {
@@ -7,6 +8,7 @@ class Schedule extends Component {
   }
 
   render() {
+    axios.get('/schedule/').then((res) => console.log(res));
     return (
       <div>
         <h1>Schedule</h1>
