@@ -17,5 +17,8 @@
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "dev:server": "cd client && yarn build && cd .. && yarn start",
     "heroku-postbuild": "cd client && yarn install && yarn install --only=dev --no-shrinkwrap && yarn run build"
+  },
+  "devDependencies": {
+    "mongodb": "^3.5.2"
   }
 }

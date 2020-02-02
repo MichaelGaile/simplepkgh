@@ -8,7 +8,7 @@ class Schedule extends Component {
   }
 
   render() {
-    axios.get('/schedule/').then((res) => console.log(res));
+    axios.get('/schedule').then((res) => console.log(res));
     return (
       <div>
         <h1>Schedule</h1>

@@ -1,15 +1,27 @@
 const express = require('express'),
-  mongoClient = require('mongodb').MongoClient;
+  MongoClient = require('mongodb').MongoClient,
+  fs          = require('fs');
 
-const app = express();
+const router = express.Router();
 
-app.get('/schedule', (req, res) => {
+router.get('/schedule', (req, res) => {
+  try {
+    const dbKey = fs.readFileSync('./server/dbKey.key', 'utf8');
+    const clientDB = new MongoClient(dbKey, { useNewUrlParser: true, useUnifiedTopology: true });
+    clientDB.connect((err) => {
+      if(err) throw err;
+      clientDB.db('simplepkgh').collection('schedule').find({}, {_id: 0, name: 1, id: 1}).toArray((err, data) => {
+        console.log(data[0]);
+        res.send(data[0]);
+        clientDB.close();
+      });
+    });
+  } catch(e) {
+    console.error(e);
+  }
 });
-app.get('/schedule:id', (req, res) => {
-  const schedule = new Schema({
-
-  })
-  res.send()
+router.get('/schedule/:id', (req, res) => {
+  //res.send()
 });
 
-module.exports = app;
+module.exports = router;

@@ -16,6 +16,10 @@
   "devDependencies": {
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
-    "htmlparser2": "^4.0.0"
+    "cyrillic-to-translit-js": "^3.0.1",
+    "htmlparser2": "^4.0.0",
+    "mongodb": "^3.5.2",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5"
   }
 }
