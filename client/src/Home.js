@@ -38,7 +38,6 @@ class Home extends Component {
         <Slider
           dots
           variableWidth
-          centerMode
           slidesToShow
           slidesToScroll
           adaptiveHeight
@@ -52,7 +51,6 @@ class Home extends Component {
               <div>
                 <img src={item.image} alt="img" />
                 <h3>{item.headline}</h3>
-                <p>{item.text}</p>
               </div>
             ))
           }
