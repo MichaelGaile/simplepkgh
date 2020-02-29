@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "get-data-pkgh": "^1.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "get-data-pkgh": "^1.0.0"
   },
   "scripts": {
     "client": "cd client && yarn start",

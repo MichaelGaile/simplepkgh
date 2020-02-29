@@ -6,17 +6,17 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~4.1.1",
-    "express": "~4.17.1",
-    "http-errors": "~1.7.3",
-    "jade": "~1.11.0",
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
+    "cookie-parser": "~1.4.4",
     "cyrillic-to-translit-js": "^3.0.1",
+    "debug": "~4.1.1",
+    "express": "~4.17.1",
+    "get-data-pkgh": "^1.0.13",
     "htmlparser2": "^4.0.0",
+    "http-errors": "~1.7.3",
+    "jade": "~1.11.0",
     "mongodb": "^3.5.4"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
