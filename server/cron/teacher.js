@@ -10,14 +10,14 @@ const pkgh = new dPkgh();
 pkgh.getTeacher().then((data) => {
   clientDB.connect((err) => {
     if (err) console.error(err);
-    const query = Object.keys(data).map((hash) => {
+    const query = Object.keys(data).map((key) => {
       return {
         updateOne: {
-          filter: { id: hash },
-          update: { $set: data[hash] },
+          filter: { id: key },
+          update: { $set: data[key] },
           upsert: true,
-        }
-      }
+        },
+      };
     });
     clientDB.db('simplepkgh').collection('teacher').bulkWrite(query, (err) => {
       if(err) console.error(err);

@@ -38,11 +38,12 @@ class GetPkgh {
       });
       clientDB.connect((err) => {
         if (err) throw err;
-        return clientDB.db(this.data.db).collection('schedule').find();
+        const data = clientDB.db(this.data.db).collection('schedule').find();
       });
     } catch (err) {
       if (err) console.error(err);
     }
+    console.warn('Warning GetPkgh: no connect db');
     return this.pkgh.getSchedule();
   }
 
@@ -59,11 +60,11 @@ class GetPkgh {
     } catch (err) {
       if (err) console.error(err);
     }
-    console.log('no db');
+    console.warn('Warning GetPkgh: no connect db');
     return this.pkgh.getSchedule();
   }
 
-  async getTeacher() {
+  async getTeacher(skip = 0, limit = 1) {
     try {
       const clientDB = new MongoClient(this.data.key, {
         useNewUrlParser: true,
@@ -71,13 +72,25 @@ class GetPkgh {
       });
       clientDB.connect((err) => {
         if (err) throw err;
-        return clientDB.db(this.data.db).collection('teacher').find();
+        const cursor = clientDB.db(this.data.db).collection('teacher').find().skip(skip)
+          .limit(limit);
+
+        async function nextCursor(c) {
+          const out = {};
+          for await (const data of c) {
+            out[data.id] = data;
+          }
+          return out;
+        }
+
+        return nextCursor(cursor);
       });
     } catch (err) {
       console.error(err);
     }
-    console.log('no db');
-    return this.pkgh.getTeacher();
+    // Add limit and skip to object
+    console.warn('Warning GetPkgh: no connect db');
+    //return this.pkgh.getTeacher();
   }
 
   async getTeacherPost(hash) {
@@ -93,6 +106,7 @@ class GetPkgh {
     } catch (err) {
       console.error(err);
     }
+    console.warn('Warning GetPkgh: no connect db');
     return this.pkgh.getSchedule();
   }
 }
