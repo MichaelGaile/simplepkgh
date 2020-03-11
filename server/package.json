@@ -12,11 +12,13 @@
     "cyrillic-to-translit-js": "^3.0.1",
     "debug": "~4.1.1",
     "express": "~4.17.1",
-    "get-data-pkgh": "^0.0.153",
+    "get-data-pkgh": "^0.0.171",
     "htmlparser2": "^4.0.0",
     "http-errors": "~1.7.3",
     "jade": "~1.11.0",
-    "mongodb": "^3.5.4"
+    "mongodb": "^3.5.4",
+    "mongoose": "^5.9.4",
+    "morgan": "^1.9.1"
   },
   "devDependencies": {
     "eslint": "^6.8.0",

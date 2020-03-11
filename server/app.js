@@ -1,8 +1,8 @@
-const createError = require('http-errors'),
-  express = require('express'),
-  path = require('path'),
-  cookieParser = require('cookie-parser'),
-  logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const scheduleRouter = require('./routes/schedule');
