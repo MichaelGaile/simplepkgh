@@ -12,7 +12,7 @@
     "cyrillic-to-translit-js": "^3.0.1",
     "debug": "~4.1.1",
     "express": "~4.17.1",
-    "get-data-pkgh": "^0.0.171",
+    "get-data-pkgh": "~0.0.184",
     "htmlparser2": "^4.0.0",
     "http-errors": "~1.7.3",
     "jade": "~1.11.0",
