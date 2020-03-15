@@ -3,20 +3,17 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "cron": "node ./src/sync/cron.js"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "cheerio": "^1.0.0-rc.3",
     "cookie-parser": "~1.4.4",
-    "cyrillic-to-translit-js": "^3.0.1",
+    "cron": "^1.8.2",
     "debug": "~4.1.1",
     "express": "~4.17.1",
-    "get-data-pkgh": "~0.0.184",
-    "htmlparser2": "^4.0.0",
+    "get-data-pkgh": "^0.0.185",
     "http-errors": "~1.7.3",
     "jade": "~1.11.0",
-    "mongodb": "^3.5.4",
     "mongoose": "^5.9.4",
     "morgan": "^1.9.1"
   },
