@@ -21,19 +21,20 @@ const scheduleReplaceLesson = new Schema({
   denTeacher: String,
 });
 
-const schedule = new Schema({
+const oneSchedule = new Schema({
   isDenominator: Boolean,
   timestamp: Date,
   error: [String],
-  schedule: {
-    id: String,
-    name: String,
-    specialty: String,
-    table: [scheduleTable],
-    replace: {
-      timestamp: Date,
-      lesson: [scheduleReplaceLesson],
-    },
+});
+
+const schedule = new Schema({
+  id: String,
+  name: String,
+  specialty: String,
+  table: [scheduleTable],
+  replace: {
+    timestamp: Date,
+    lesson: [scheduleReplaceLesson],
   },
 });
 
@@ -77,6 +78,7 @@ const chess = new Schema({
 
 module.exports = {
   schedule,
+  oneSchedule,
   teacher,
   call,
   warning,
