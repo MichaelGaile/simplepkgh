@@ -1,7 +1,8 @@
-const CronJob = require('cron').CronJob;
+const { CronJob } = require('cron');
 const SaveInDB = require('./SaveInDB.js');
+const { db } = require('../../config.js');
 
-const save = new SaveInDB();
+const save = new SaveInDB({ db });
 
 // Range cron:
 // Seconds: 0-59
@@ -12,23 +13,19 @@ const save = new SaveInDB();
 // Day of Week: 0-6 (Sun-Sat)
 
 const schedule = new CronJob('* */15 * * * *', () => {
-  const l = save.schedule();
-  if (!l) console.warn('Error schedule');
+  save.schedule();
 });
 
 const teacher = new CronJob('* 0 23 */1 * *', () => {
-  const l = save.teacher();
-  if (!l) console.warn('Error teacher');
+  save.teacher();
 });
 
 const chess = new CronJob('* 0 23 */7 * *', () => {
-  const l = save.chess();
-  if (!l) console.warn('Error chess');
+  save.chess();
 });
 
 const warning = new CronJob('* */30 * * * *', () => {
-  const l = save.warning();
-  if (!l) console.warn('Error teacher');
+  save.warning();
 });
 
 console.log('Cron start');
